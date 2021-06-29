@@ -14417,6 +14417,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/Login.cshtml",
+      "TargetPath": "Views\\Home\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/_BootcampLocationPart.cshtml",
       "TargetPath": "Views\\Home\\_BootcampLocationPart.cshtml",
       "FileKind": "mvc"
@@ -14442,6 +14447,16 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/Register.cshtml",
+      "TargetPath": "Views\\Home\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/_RegPartial.cshtml",
+      "TargetPath": "Views\\Home\\_RegPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/Admin.cshtml",
       "TargetPath": "Views\\Home\\Admin.cshtml",
       "FileKind": "mvc"
@@ -14454,6 +14469,11 @@
     {
       "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/FatalError.cshtml",
       "TargetPath": "Views\\Home\\FatalError.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/_LoginPartial.cshtml",
+      "TargetPath": "Views\\Home\\_LoginPartial.cshtml",
       "FileKind": "mvc"
     },
     {
