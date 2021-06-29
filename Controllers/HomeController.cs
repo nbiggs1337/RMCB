@@ -51,6 +51,10 @@ namespace RMCB.Controllers
             return View();
         }
         
+        
+        
+        //LOGIN REGISTER =-=-=-=-=-=-=-=-
+        
         [HttpGet("login")]
         public IActionResult Login()
         {
@@ -63,6 +67,63 @@ namespace RMCB.Controllers
         {
             return View();
         }
+        
+        [HttpPost("/register/user")]
+        public IActionResult NewUser(User newUser)
+        {
+            if (ModelState.IsValid)
+            {
+                var Exists = _context.Users.FirstOrDefault( u => u.Email == newUser.Email);
+                if (Exists == null)
+                {
+                    PasswordHasher<User> Hashed = new PasswordHasher<User>();
+                    newUser.Password = Hashed.HashPassword(newUser, newUser.Password);
+                    _context.Add(newUser);
+                    _context.SaveChanges();
+                    HttpContext.Session.SetInt32("LoggedIn", newUser.UserID);
+                    return RedirectToAction("Index");
+                } else {
+                    ModelState.AddModelError("Email", "Email is already in use! Please Login.");
+                    return View("Register");
+                }
+            } else {
+                return View("Register");
+            }
+        }
+        
+        
+        [HttpPost("/login/user")]
+        public IActionResult LoginUser(LUser Login)
+        {
+            if (ModelState.IsValid){
+                
+                var UserInDB = _context.Users.FirstOrDefault( u => u.Email == Login.LEmail);
+                
+                if (UserInDB == null)
+                {
+                    ModelState.AddModelError("LEmail", "Invalid Email or Password!");
+                    return View("Login");
+                }
+                
+                var Hashed = new PasswordHasher<LUser>();
+                var result = Hashed.VerifyHashedPassword(Login, UserInDB.Password, Login.LPassword);
+                
+                if (result == 0)
+                {
+                    ModelState.AddModelError("LEmail", "Invalid Email or Password!");
+                    return View("Login");
+                } else {
+                    HttpContext.Session.SetInt32("LoggedIn", UserInDB.UserID);
+                    return RedirectToAction("Index");
+                }
+                
+            } 
+            else {
+                return View("Login");
+            }
+            
+        }
+        
         
         
         
