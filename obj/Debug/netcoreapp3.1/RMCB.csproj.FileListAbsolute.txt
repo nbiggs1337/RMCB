@@ -69,3 +69,4 @@
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/Register.cshtml.g.cs
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/_LoginPartial.cshtml.g.cs
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/_RegPartial.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/RateCamp.cshtml.g.cs

@@ -14447,6 +14447,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/RateCamp.cshtml",
+      "TargetPath": "Views\\Home\\RateCamp.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/Register.cshtml",
       "TargetPath": "Views\\Home\\Register.cshtml",
       "FileKind": "mvc"

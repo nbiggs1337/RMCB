@@ -133,6 +133,9 @@ namespace RMCB.Controllers
         {
             //HARDCODE LOGIC SO ONLY ADMIN ACC CAN ACCESS BY ID
             //Add all ness viewbags for forms 
+            ViewBag.CourseCats = _context.CourseCats.ToList();
+            ViewBag.Bootcamps = _context.Bootcamps.ToList();
+            ViewBag.States = _context.States.ToList();
             return View();
         }
         
@@ -218,8 +221,25 @@ namespace RMCB.Controllers
         public IActionResult Rate()
         {
             //Check to see if userID set, if not set to default anon acc.
+            ViewBag.Bootcamps = _context.Bootcamps.ToList();
             return View();
         }
+        
+        
+        [HttpGet("/rate/{BootcampID}")]
+        public IActionResult RateCamp(int BootcampID)
+        {
+            ViewBag.ThisCamp = _context.Bootcamps.Include( b => b.Locations)
+                .ThenInclude( l => l.State).Include(b => b.Courses)
+                .FirstOrDefault(b => b.BootcampID == BootcampID);
+            return View();
+            
+            
+        }
+        
+        
+        
+        
         
 
         public IActionResult Privacy()
