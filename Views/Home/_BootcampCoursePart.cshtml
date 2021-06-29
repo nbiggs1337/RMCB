@@ -1,0 +1,41 @@
+@model Course;
+
+<form action="/add/bootcamp/course" method="POST">
+    <div class="form-group">
+        
+        <label asp-for="BootcampID">Select BootCamp</label>
+        <select asp-for="BootcampID" class="form-control">
+            
+            @if (ViewBag.BootCamps != null){
+                @foreach (Bootcamp b in ViewBag.Bootcamps)
+                {
+                    <option value="@b.BootcampID">@b.Name</option>
+                }
+            }
+            
+        </select>
+        
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="CourseCatID">Select Category</label>
+        <select asp-for="CourseCatID" class="form-control">
+            
+            @if (ViewBag.CourseCats != null){
+                @foreach (CourseCat b in ViewBag.CourseCats)
+                {
+                    <option value="@b.CourseCatID">@b.CategoryName</option>
+                }
+            }
+            
+        </select>
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Name">Course Name (School Official):</label>
+        <input type="text" asp-for="Name" class="form-control" >
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Add Course</button>
+    
+</form>

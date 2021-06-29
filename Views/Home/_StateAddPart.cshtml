@@ -1,0 +1,13 @@
+@model State;
+
+
+<form action="/add/state" method="POST">
+    
+    <div class="form-group">
+        <label asp-for="Name">State Name (Official):</label>
+        <input type="text" asp-for="Name" class="form-control" >
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Add State</button>
+    
+</form>

@@ -40,7 +40,7 @@ namespace RMCB.Models
         [Required]
         public string Textbook {get;set;}
         
-        // public List<string> Tags {get;set;}
+        
         
         [Required]
         public string Pros {get;set;}

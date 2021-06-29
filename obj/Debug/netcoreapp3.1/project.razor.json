@@ -14402,6 +14402,11 @@
   "RootNamespace": "RMCB",
   "Documents": [
     {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/_BootcampCoursePart.cshtml",
+      "TargetPath": "Views\\Home\\_BootcampCoursePart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
       "FileKind": "mvc"
@@ -14412,13 +14417,28 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/_BootcampLocationPart.cshtml",
+      "TargetPath": "Views\\Home\\_BootcampLocationPart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/Index.cshtml",
       "TargetPath": "Views\\Home\\Index.cshtml",
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/Rate.cshtml",
+      "TargetPath": "Views\\Home\\Rate.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Shared/Error.cshtml",
       "TargetPath": "Views\\Shared\\Error.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/_BootcampAddPart.cshtml",
+      "TargetPath": "Views\\Home\\_BootcampAddPart.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -14432,8 +14452,23 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/FatalError.cshtml",
+      "TargetPath": "Views\\Home\\FatalError.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/_ViewImports.cshtml",
       "TargetPath": "Views\\_ViewImports.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/_StateAddPart.cshtml",
+      "TargetPath": "Views\\Home\\_StateAddPart.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/_CourseCatAddPart.cshtml",
+      "TargetPath": "Views\\Home\\_CourseCatAddPart.cshtml",
       "FileKind": "mvc"
     },
     {

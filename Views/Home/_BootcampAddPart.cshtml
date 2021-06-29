@@ -1,0 +1,36 @@
+@model Bootcamp;
+
+<form action="/add/bootcamp"  method="POST">
+    <div class="form-group">
+        <label asp-for="Name">BootCamp Name</label>
+        <input asp-for="Name" type="text" class="form-control" placeholder="Bootcamp Name">
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Flex">Offers Flex Classes?</label>
+        <input asp-for="Flex">
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="GIBill">Supports GI Bill?</label>
+        <input asp-for="GIBill">
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Online">Offers Online Option?</label>
+        <input asp-for="Online">
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Facility">Offers IRL Facility Option?</label>
+        <input asp-for="Facility">
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="Subjects">BootCamp Subjects/Languages Offered: (Format cleanly)</label>
+        <input asp-for="Subjects" type="text" class="form-control" placeholder="Bootcamp Subjects">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Add Bootcamp</button>
+    
+</form>

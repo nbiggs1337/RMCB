@@ -58,3 +58,10 @@
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/RMCB.pdb
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/RMCB.genruntimeconfig.cache
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/Admin.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/Rate.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/_BootcampAddPart.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/_BootcampLocationPart.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/_BootcampCoursePart.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/_CourseCatAddPart.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/_StateAddPart.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/FatalError.cshtml.g.cs

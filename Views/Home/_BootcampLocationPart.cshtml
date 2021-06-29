@@ -1,0 +1,39 @@
+@model Location;
+
+<form action="/add/bootcamp/location"  method="POST">
+    <div class="form-group">
+        <label asp-for="BootcampID">Select BootCamp</label>
+        <select asp-for="BootcampID" class="form-control">
+            @if (ViewBag.BootCamps != null){
+                @foreach (Bootcamp b in ViewBag.Bootcamps)
+                {
+                    <option value="@b.BootcampID">@b.Name</option>
+                }
+            } else {
+                <p>None to display</p>
+            }
+            
+            
+        </select>
+        
+    </div>
+    
+    <div class="form-group">
+        <label asp-for="StateID">Select State Location</label>
+        <select asp-for="StateID" class="form-control">
+            @if (ViewBag.States != null){
+                @foreach (State b in ViewBag.States)
+                {
+                    <option value="@b.StateID">@b.Name</option>
+                }
+            } else {
+                <p>None to display</p>
+            }
+            
+            
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Add Location</button>
+    
+</form>
