@@ -21,6 +21,66 @@ namespace RMCB.Controllers
             _context = context;
         }
         
+        public static object Breakdown(Bootcamp ThisBootcamp)
+        {
+            //For Breakdown - declaration
+            float Curric = 0;
+            float Diff = 0;
+            float Instruct = 0;
+            float Facil = 0;
+            float Career = 0;
+            List<float> Breakdown = new List<float>();
+            //Rating Logic - declaration
+            float Rating = 0;
+            float total = 0;
+            int RecCount = 0;
+            int RecPerc = 0;
+                foreach (var r in ThisBootcamp.Reviews)
+                {
+                    // Console.WriteLine(c.Reviews.Count);
+                    if (ThisBootcamp.Reviews.Count == 0){
+                        total = 1;
+                    } 
+                    else {
+                        total += (float)(r.Curriculum + r.Instructors + r.Facility + r.JobSupport + r.Difficulty);
+                        Curric += (float)r.Curriculum;
+                        Diff += (float)r.Difficulty;
+                        Instruct += (float)r.Instructors;
+                        Facil += (float)r.Facility;
+                        Career += (float)r.JobSupport;
+                        if(r.Recommend == "YES"){
+                            RecCount += 1;
+                        }
+                    }
+                    
+                }
+                if(ThisBootcamp.Reviews.Count < 1){
+                    Rating = total;
+                } else{
+                    // Console.WriteLine(total);
+                    float rate = (total/(ThisBootcamp.Reviews.Count * 5));
+                    Rating = rate;
+                    RecPerc = (100 / ThisBootcamp.Reviews.Count) * RecCount;
+                    
+                }
+            //Calculating Breakdown ratings 
+            Curric = Curric/(float)ThisBootcamp.Reviews.Count;
+            Diff = Diff/(float)ThisBootcamp.Reviews.Count;
+            Instruct = Instruct/(float)ThisBootcamp.Reviews.Count;
+            Facil = Facil/(float)ThisBootcamp.Reviews.Count;
+            Career = Career/(float)ThisBootcamp.Reviews.Count;
+            //Adding Breakdown ratings
+            Breakdown.Add(Curric);
+            Breakdown.Add(Diff);
+            Breakdown.Add(Instruct);
+            Breakdown.Add(Facil);
+            Breakdown.Add(Career);
+            Breakdown.Add(RecPerc);
+            Breakdown.Add(Rating);
+            return Breakdown;
+        }
+        
+        
         
         
         //Global Session LoggedIn User Checkers -=-=-=-=-==--=-
@@ -231,6 +291,8 @@ namespace RMCB.Controllers
         }
         
         
+        //Rate page display
+        
         [HttpGet("/rate/{BootcampID}")]
         public IActionResult RateCamp(int BootcampID)
         {
@@ -243,6 +305,83 @@ namespace RMCB.Controllers
         }
         
         
+        //Rate Submit Route
+        [HttpPost("rate/submit")]
+        public IActionResult SubmitRate(Review newRating)
+        {
+            if (ModelState.IsValid)
+            {
+                if (newRating.UserID < 1){
+                    
+                    _context.Reviews.Add(newRating);
+                    _context.SaveChanges();
+                    return Redirect("/bootcamps/" + newRating.BootcampID); 
+                } else {
+                    _context.Reviews.Add(newRating);
+                    _context.SaveChanges();
+                    return Redirect("/bootcamps/" + newRating.BootcampID); 
+                }
+                
+            } else {
+                int BootcampID = newRating.BootcampID;
+                ViewBag.ThisCamp = _context.Bootcamps.Include( b => b.Locations)
+                .ThenInclude( l => l.State).Include(b => b.Courses)
+                .FirstOrDefault(b => b.BootcampID == BootcampID);
+                ModelState.AddModelError("Cohort", "Error Submitting, Please make sure every field is answered & try again.");
+                return View("RateCamp");
+            }
+        }
+        
+        
+        
+        
+        //View All Bootcamps
+        [HttpGet("/bootcamps")]
+        public IActionResult AllBootcamps()
+        {
+            List<Bootcamp> camps = _context.Bootcamps.Include(b => b.Locations)
+                .ThenInclude(l => l.State).Include(b => b.Reviews).ToList();
+            ViewBag.AllBootcamps = camps;
+            List<float> Ratings = new List<float>();
+            
+            foreach (var c in camps)
+            {
+                float total = 0;
+                foreach (var r in c.Reviews)
+                {
+                    if (c.Reviews.Count == 0){
+                        total = 1;
+                    } 
+                    else {
+                        total += (float)(r.Curriculum + r.Instructors + r.Facility + r.JobSupport + r.Difficulty);
+                    }
+                    
+                }
+                if(c.Reviews.Count < 1){
+                    Ratings.Add(total);
+                } else{
+                    float rate = (total/(c.Reviews.Count * 5));
+                    Ratings.Add(rate);
+                }
+                
+            }
+            
+            ViewBag.Ratings = Ratings;
+            return View();
+        }
+        
+        //View One BootcampRatings
+        [HttpGet("/bootcamps/{BootcampID}")]
+        public IActionResult ViewBootcamp(int BootcampID)
+        {
+            var ThisBootcamp = _context.Bootcamps.Include( b => b.Locations)
+                .ThenInclude( l => l.State).Include(b => b.Courses).Include(b => b.Reviews)
+                .FirstOrDefault(b => b.BootcampID == BootcampID);
+            
+            ViewBag.Breakdown = Breakdown(ThisBootcamp);
+            ViewBag.ThisBootcamp = ThisBootcamp;
+            return View();
+        }
         
         
         

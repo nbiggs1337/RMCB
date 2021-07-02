@@ -48,7 +48,7 @@
         <div class="section-3 w-clearfix">
             <a href="/" class="link-block w-inline-block"></a>
             <h1 class="heading-3">Rate @ViewBag.ThisCamp.Name </h1>
-            <a href="/bootcamp/id" class="link-4">See all @ViewBag.ThisCamp.Name reviews</a>
+            <a href="/bootcamps/@ViewBag.ThisCamp.BootcampID" class="link-4">See all @ViewBag.ThisCamp.Name reviews</a>
         </div>
         <div id="posts" class="main-section">
             <div class="columns-2 w-row">
@@ -82,7 +82,7 @@
                 </div>
                 <div class="w-col w-col-3 w-col-small-3 w-col-tiny-3">
                     <div class="w-form">
-                        <form action="/rate/submit" id="email-form" name="email-form" data-name="Form">
+                        <form action="/rate/submit" id="email-form" name="email-form" data-name="Form" method="POST">
                             
                             <input type="text" class="text-field w-input" maxlength="256" asp-for="Cohort" data-name="Cohort" placeholder="Cohort ID or Student ID" id="Corhort" required="">
                             <select id="Course" asp-for="Course" required="" data-name="Course" class="select-field w-select">
@@ -161,6 +161,8 @@
                                 
                             </select><textarea placeholder="Be specific here! Max 350 characters" maxlength="5000" id="field-9" asp-for="Comments" class="textarea w-input"></textarea>
                             
+                            <input type="hidden" asp-for="City" value="FALSE">
+                            <input type="hidden" asp-for="UserID" value="3">
                             <input type="hidden" asp-for="BootcampID" value="@ViewBag.ThisCamp.BootcampID">
                             
                             <input type="submit" value="Submit" data-wait="Please wait..." class="w-button">

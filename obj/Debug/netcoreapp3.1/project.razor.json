@@ -14447,6 +14447,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/AllBootcamps.cshtml",
+      "TargetPath": "Views\\Home\\AllBootcamps.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/_BootcampAddPart.cshtml",
       "TargetPath": "Views\\Home\\_BootcampAddPart.cshtml",
       "FileKind": "mvc"
@@ -14464,6 +14469,11 @@
     {
       "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/_RegPartial.cshtml",
       "TargetPath": "Views\\Home\\_RegPartial.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/Views/Home/ViewBootcamp.cshtml",
+      "TargetPath": "Views\\Home\\ViewBootcamp.cshtml",
       "FileKind": "mvc"
     },
     {
