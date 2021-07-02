@@ -51,6 +51,11 @@ namespace RMCB.Controllers
             return View();
         }
         
+        [HttpGet("about")]
+        public IActionResult About()
+        {
+            return View();
+        }
         
         
         //LOGIN REGISTER =-=-=-=-=-=-=-=-

@@ -41,7 +41,6 @@
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/RMCB.TagHelpers.input.cache
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/RMCB.TagHelpers.output.cache
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/RMCB.RazorCoreGenerate.cache
-/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/Privacy.cshtml.g.cs
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Shared/Error.cshtml.g.cs
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Shared/_Layout.cshtml.g.cs
@@ -70,3 +69,6 @@
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/_LoginPartial.cshtml.g.cs
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/_RegPartial.cshtml.g.cs
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/RateCamp.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/Index.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/About.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/OLDRATECAMP.cshtml.g.cs

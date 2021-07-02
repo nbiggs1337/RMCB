@@ -1,0 +1,154 @@
+@{
+    ViewData["Title"] = @ViewBag.ThisCamp.Name+ " - RateMyCodingBootcamp - Rate a Bootcamp";
+}
+@model Review;
+
+<div class="text-center">
+    <h1 class="display-4">Rate @ViewBag.ThisCamp.Name</h1>
+    <p>This page will have all the form options to rate a specific bootcamp. </p>
+    
+    <form action="/rate/submit" method="POST">
+        <div class="form-group row">
+            <label asp-for="Cohort" class="col-sm-3 col-form-label col-form-label-lg">Cohort ID or Student ID: </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control col-5" asp-for="Cohort" placeholder="Cohort ID / Student ID">
+                <small>This will not be public. Note: *Your rating may be subject to removal if you do not include this verification*</small>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="Course" class="col-sm-2 col-form-label col-form-label-lg">Course Taken: </label>
+            <select asp-for="Course" class="form-control col-5" placeholder="--Select--">
+                @foreach (var i in ViewBag.ThisCamp.Courses)
+                {
+                    <option value="@i.Name">@i.Name</option>
+                }
+            </select>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="Location" class="col-sm-3 col-form-label col-form-label-lg">Location Attended: </label>
+            <select asp-for="Location" asp-for="City" class="form-control col-4" placeholder="--Select--">
+                <option disabled selected>Select from menu</option>
+                <option value="Online">Online / Virtual</option>
+                @foreach (var i in ViewBag.ThisCamp.Locations)
+                {
+                    <option value="@i.State.Name">@i.State.Name</option>
+                }
+            </select>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="Curriculum" class="col-sm-3 col-form-label col-form-label-lg">Curriculum: </label>
+            <select class="form-control col-4" asp-for="Curriculum">
+                <option disabled selected>Select from menu</option>
+                <option value="1">One - Terrible</option>
+                <option value="2">Two - Poor</option>
+                <option value="3">Three - Average/Acceptable</option>
+                <option value="4">Four - Good</option>
+                <option value="5">Five - Exellent</option>
+            </select>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="Difficulty" class="col-sm-3 col-form-label col-form-label-lg">Difficulty: </label>
+            <select class="form-control col-4" asp-for="Difficulty">
+                <option disabled selected>Select from menu</option>
+                <option value="1">VERY Easy / Too Easy</option>
+                <option value="2">Easy</option>
+                <option value="3">Average / Medium</option>
+                <option value="4">Difficult</option>
+                <option value="5">VERY Difficult / Too Difficult</option>
+            </select>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="Instructors" class="col-sm-3 col-form-label col-form-label-lg">Instructors: </label>
+            <select class="form-control col-4" asp-for="Instructors">
+                <option disabled selected>Select from menu</option>
+                <option value="1">One - Terrible</option>
+                <option value="2">Two - Poor</option>
+                <option value="3">Three - Average/Acceptable</option>
+                <option value="4">Four - Good</option>
+                <option value="5">Five - Exellent</option>
+            </select>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="JobSupport" class="col-sm-3 col-form-label col-form-label-lg">Career Support: </label>
+            <select class="form-control col-4" asp-for="JobSupport">
+                <option disabled selected>Select from menu</option>
+                <option value="1">One - Terrible</option>
+                <option value="2">Two - Poor</option>
+                <option value="3">Three - Average/Acceptable</option>
+                <option value="4">Four - Good</option>
+                <option value="5">Five - Exellent</option>
+            </select>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="Facility" class="col-sm-3 col-form-label col-form-label-lg">Facility: </label>
+            <select class="form-control col-4" asp-for="Facility">
+                <option disabled selected>Select from menu</option>
+                <option value="5">N/A - Online</option>
+                <option value="1">One - Terrible</option>
+                <option value="2">Two - Poor</option>
+                <option value="3">Three - Average/Acceptable</option>
+                <option value="4">Four - Good</option>
+                <option value="5">Five - Exellent</option>
+            </select>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="Online" class="col-sm-3 col-form-label col-form-label-lg">Online / Virtual Course: </label>
+            <input type="checkbox" asp-for="Online" class="custom-control-input" value="true" placeholder="Yes, Online.">
+            <label class="custom-control-label" for="Online">Yes, this was a virtual course.</label>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="Textbook" class="col-sm-3 col-form-label col-form-label-lg">Textbook Use: </label>
+            <select class="form-control col-4" asp-for="Textbook">
+                <option disabled selected>Select from menu</option>
+                <option value="Optional">Avalible but Optional</option>
+                <option value="Always">Always / Daily</option>
+                <option value="Often">Often</option>
+                <option value="Sometimes">Sometimes</option>
+                <option value="Rarely">Rarely</option>
+                <option value="Never">Never</option>
+            </select>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="Pros" class="col-sm-3 col-form-label col-form-label-lg">Pros: </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control col-5" asp-for="Pros" placeholder="Pros">
+                <small>Keep it short and sweet. Brief list of the pros, max 100 characters.</small>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="Cons" class="col-sm-3 col-form-label col-form-label-lg">Cons: </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control col-5" asp-for="Cons" placeholder="Cons">
+                <small>Keep it short and sweet. Brief list of the cons, max 100 characters.</small>
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label asp-for="Cons" class="col-sm-3 col-form-label col-form-label-lg" >Comments: </label>
+            <br>
+        </div>
+        <div class="form-group">
+            
+            <textarea asp-for="Comments" class="form-control" cols="10" rows="3" placeholder="Here's your chance to be specific! Let others know how you feel, & what to expect! "></textarea>
+            <small>Limit 400 characters.</small>
+        </div>
+        
+        
+        <input type="hidden" asp-for="BootcampID" value="@ViewBag.ThisCamp.BootcampID">
+        
+        <input class="btn btn-primary mb-2" value="Submit Rating" type="submit">
+        
+    </form>
+    
+</div>
