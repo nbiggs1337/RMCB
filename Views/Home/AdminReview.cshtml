@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "ADMIN PANEL";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Admin</h1>
+    <p> Click delete will delete that review. Use caution. </p>
+</div>
+
+<hr>
+<a href="/Admin">Back To Admin Panel</a>
+<div class="text-center">
+    <h2>Reviews =-=-=-=-</h2><br>
+</div>
+
+<div class="d-flex container">
+        
+        <hr>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Review Comments</th>
+                <th scope="col">Recommended?</th>
+                <th scope="col">Pros</th>
+                <th scope="col">Cons</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            
+            <tbody>
+            @foreach (Review r in @ViewBag.ThisBootcamp)
+            {
+                <tr>
+                    <td>@r.Comments</td>
+                    <td>@r.Recommend</td>
+                    <td>@r.Pros</td>
+                    <td>@r.Cons</td>
+                    <td><form action="/@r.BootcampID/delete/@r.ReviewID" method="POST"><button type="submit">Delete</button></form></td>
+                </tr>
+            }
+            </tbody>
+            
+        </table>
+        
+        
+        
+    
+    
+</div>
+
+<hr><hr>

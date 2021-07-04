@@ -74,3 +74,7 @@
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/OLDRATECAMP.cshtml.g.cs
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/AllBootcamps.cshtml.g.cs
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/ViewBootcamp.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/RateSearch.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/BootcampsResult.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/401.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/AdminReview.cshtml.g.cs

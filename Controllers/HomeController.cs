@@ -20,7 +20,23 @@ namespace RMCB.Controllers
         {
             _context = context;
         }
-        
+        public static string Pascal( string x)
+        {
+            char[] a = x.ToCharArray();
+            a[0] = char.ToUpper(a[0]);
+
+        for(int i = 0; i < x.Length; i++)
+        {
+            
+            if(a[i] == ' ')
+            {
+                a[i+1] = char.ToUpper(a[i+1]);
+            }
+                
+        }
+        string b = new string(a);
+        return b;
+        }
         public static object Breakdown(Bootcamp ThisBootcamp)
         {
             //For Breakdown - declaration
@@ -103,9 +119,12 @@ namespace RMCB.Controllers
             int UserID = LoggedInUser().UserID;
             return UserID;
         }
-
-
+        
+        
+        //ROUTES///
+        /////////////////////////
         //MAIN HOME -=-=-=-=-=-=-=-=-=-
+        /////////////////////////
         public IActionResult Index()
         {
             return View();
@@ -117,9 +136,9 @@ namespace RMCB.Controllers
             return View();
         }
         
-        
+        /////////////////////////
         //LOGIN REGISTER =-=-=-=-=-=-=-=-
-        
+        /////////////////////////
         [HttpGet("login")]
         public IActionResult Login()
         {
@@ -191,18 +210,77 @@ namespace RMCB.Controllers
         
         
         
-        
+        /////////////////////////
         //ADMIN PANEL ROUTES-=-=-=-=-=-=-=-
+        /////////////////////////
+        
+        //Main Panel
         [HttpGet("Admin")]
         public IActionResult Admin()
         {
-            //HARDCODE LOGIC SO ONLY ADMIN ACC CAN ACCESS BY ID
-            //Add all ness viewbags for forms 
-            ViewBag.CourseCats = _context.CourseCats.ToList();
-            ViewBag.Bootcamps = _context.Bootcamps.ToList();
-            ViewBag.States = _context.States.ToList();
-            return View();
+            if (LoggedID() != null)
+            {
+                if (UserID() < 3)
+                {
+                    ViewBag.CourseCats = _context.CourseCats.ToList();
+                    ViewBag.Bootcamps = _context.Bootcamps.ToList();
+                    ViewBag.States = _context.States.ToList();
+                    return View();
+                } else {
+                    return View("401");
+                }
+                
+            } else {
+                return View("401");
+            }
+            
         }
+        
+        
+        //Delete Reviews ViewPage
+        [HttpGet("/reviews/{BootcampID}")]
+        public IActionResult AdminReview(int BootcampID)
+        {
+            if (LoggedID() != null){
+                if (UserID() < 3)
+                {
+                    ViewBag.ThisBootcamp = _context.Reviews
+                        .Include(r => r.Bootcamp)
+                        .Where(r => r.BootcampID == BootcampID)
+                        .OrderByDescending(r => r.ReviewID).ToList();
+                    return View();
+                    
+                } 
+                else {
+                    return RedirectToAction("Index");
+                }
+                
+            } 
+            else {
+                HttpContext.Session.Clear();
+                return RedirectToAction("Index");
+            }
+        }
+        
+        //Remove/Delete Review
+        
+        [HttpPost("/{BootcampID}/delete/{ReviewID}")]
+        public IActionResult DeleteReview(int BootcampID, int ReviewID)
+        {
+            if (UserID() < 3 && LoggedID() != null)
+            {
+                Review DeleteReview = _context.Reviews
+                    .FirstOrDefault(r => r.ReviewID == ReviewID); 
+                _context.Reviews.Remove(DeleteReview);
+                _context.SaveChanges();
+                return Redirect("/reviews/" + BootcampID);
+            }
+            else {
+                return RedirectToAction("Index");
+            }
+        }
+        
+        
         
         //ADD BOOTCAMP
         [HttpPost("/add/bootcamp")]
@@ -281,14 +359,38 @@ namespace RMCB.Controllers
         }
         
         
+        
+        /////////////////////////
         //USER FRONTEND-=-=-=-=-=-=-=-=-
+        /////////////////////////
+        //Base search page - empty with search bar 
         [HttpGet("/rate")]
-        public IActionResult Rate()
+        public IActionResult RateSearch()
         {
             //Check to see if userID set, if not set to default anon acc.
             ViewBag.Bootcamps = _context.Bootcamps.ToList();
             return View();
         }
+        
+        //Rate Search Route 
+        [HttpPost("/search")]
+        public IActionResult Search(string query)
+        {
+            query = Pascal(query);
+            if (!string.IsNullOrEmpty(query))
+            {
+                var result = _context.Bootcamps.Include(b => b.Locations).ThenInclude(l => l.State).Include(b => b.Reviews)
+                    .Where(b => b.Name.Contains(query)).ToList();
+                ViewBag.result = result;
+                return View("BootcampsResult");
+            }
+            else {
+                ViewBag.result = _context.Bootcamps.Include(b => b.Locations)
+                    .ThenInclude(l => l.State).Include(b => b.Reviews).ToList();
+                return View("BootcampsResult");
+            }
+        }
+        
         
         
         //Rate page display
@@ -329,6 +431,33 @@ namespace RMCB.Controllers
                 .FirstOrDefault(b => b.BootcampID == BootcampID);
                 ModelState.AddModelError("Cohort", "Error Submitting, Please make sure every field is answered & try again.");
                 return View("RateCamp");
+            }
+        }
+        
+        
+        
+        //Query Results by State
+        [HttpGet("/search/{StateName}")]
+        public IActionResult SearchState(string StateName)
+        {
+            if (!string.IsNullOrEmpty(Pascal(StateName)))
+            {
+                ViewBag.result = _context.Bootcamps
+                    .Include(b => b.Locations)
+                    .ThenInclude(l => l.State)
+                    .Include(b => b.Reviews)
+                    .Where(l => l.Locations.Any(l => l.State.Name.Contains(Pascal(StateName))))
+                    .ToList();
+                
+                return View("BootcampsResult");
+            }
+            else {
+                ViewBag.result = _context.Bootcamps
+                    .Include(b => b.Locations)
+                    .ThenInclude(l => l.State)
+                    .Include(b => b.Reviews)
+                    .ToList();
+                return View("BootcampsResult");
             }
         }
         

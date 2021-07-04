@@ -83,3 +83,33 @@
         
     </div>
 </div>
+
+<hr><hr>
+
+<div class="d-flex container">
+    
+    <div class="col-6">
+        <h2 class="display-4">Review Management</h2>
+        <hr>
+        
+        <h3>Delete a Review - Select Bootcamp</h3>
+        <p>
+            @foreach (Bootcamp b in @ViewBag.Bootcamps)
+            {
+                <a href="/reviews/@b.BootcampID">@b.Name -  </a>
+            }
+            
+            
+        </p>
+        
+        
+    </div>
+    
+    <div class="col-6">
+        <h2 class="display-4">=-=-=-=-=-=-=-=-=</h2>
+        <hr>
+        
+        
+        
+    </div>
+</div>

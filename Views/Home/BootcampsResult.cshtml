@@ -1,5 +1,5 @@
 @{
-    ViewData["Title"] = " All Coding Bootcamps - RateMyCodingBootcamp - Rate a Bootcamp";
+    ViewData["Title"] = " Coding Bootcamps Results - RateMyCodingBootcamp - Rate a Bootcamp";
 }
 
 <!DOCTYPE html>
@@ -46,29 +46,40 @@
             </div>
         </div>
         <div id="posts" class="main-section">
-            @for(var b = 0; b < ViewBag.AllBootcamps.Count;b++)
-            {
-                <div class="container-3 w-container"><img src="~/images/HighresLogoDropS.png" loading="lazy" width="120" alt="" class="image-10">
-                
-                    <a href="/bootcamps/@ViewBag.AllBootcamps[b].BootcampID"><h1 class="heading-17">@ViewBag.AllBootcamps[b].Name</h1></a>
-                    <h2 class="heading-18">
-                        @ViewBag.Ratings[b]
-                    </h2><img src="~/images/star.png" loading="lazy" width="24" alt="" class="image-11">
-                    
-                    <h2 class="heading-18">/ 5</h2><img src="~/images/star.png" loading="lazy" width="24" alt="" class="image-11">
-                    
-                    <p class="paragraph-14">
-                        Locations:
-                        
-                        @for (var l=0; l < @ViewBag.AllBootcamps[b].Locations.Count-1; l++)
-                        {
-                            @ViewBag.AllBootcamps[b].Locations[l].State.Name <span>, </span>
-                        } @ViewBag.AllBootcamps[b].Locations[ViewBag.AllBootcamps[b].Locations.Count-1].State.Name
-                    </p>
-                    <br><p class="paragraph-14">@ViewBag.AllBootcamps[b].Subjects</p>
-                        
+            @if (ViewBag.result.Count < 1){
+                <div class="container-3 w-container">
+                    <h2 class="heading-18"> There are no results.</h2> 
+                    <br>
+                    <h2 class="heading-18">Please retry a different query or go home to search by locations. </h2>
                 </div>
+            } else{
+                @for(var b = 0; b < ViewBag.result.Count;b++)
+                {
+                    <div class="container-3 w-container"><img src="~/images/HighresLogoDropS.png" loading="lazy" width="120" alt="" class="image-10">
+                    
+                        <a href="/rate/@ViewBag.result[b].BootcampID"><h1 class="heading-17">@ViewBag.result[b].Name</h1></a>
+                        <h2 class="heading-18">
+                            
+                        </h2><img  loading="lazy" width="24" alt="" class="image-11">
+                        
+                        <h2 class="heading-18"></h2><img  loading="lazy" width="24" alt="" class="image-11">
+                        
+                        <p class="paragraph-14">
+                            Locations:
+                            
+                            @for (var l=0; l < @ViewBag.result[b].Locations.Count-1; l++)
+                            {
+                                @ViewBag.result[b].Locations[l].State.Name <span>, </span>
+                            } @ViewBag.result[b].Locations[ViewBag.result[b].Locations.Count-1].State.Name
+                        </p>
+                        <br><p class="paragraph-14">@ViewBag.result[b].Subjects</p>
+                            
+                    </div>
+                }
+                
+                
             }
+            
             
             
             <div class="container-3 w-container"><img src="~/images/HighresLogoDropS.png" loading="lazy" width="120"
