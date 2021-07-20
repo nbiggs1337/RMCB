@@ -1,5 +1,4 @@
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/bin/Debug/netcoreapp3.1/appsettings.Development.json
-/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/bin/Debug/netcoreapp3.1/appsettings.json
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/bin/Debug/netcoreapp3.1/RMCB.deps.json
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/bin/Debug/netcoreapp3.1/RMCB.runtimeconfig.json
@@ -78,3 +77,4 @@
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/BootcampsResult.cshtml.g.cs
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/401.cshtml.g.cs
 /Users/noahbiggs/Documents/CodingDojo/Project/RMCB/obj/Debug/netcoreapp3.1/Razor/Views/Home/AdminReview.cshtml.g.cs
+/Users/noahbiggs/Documents/CodingDojo/Project/RMCB/bin/Debug/netcoreapp3.1/appsettings.json
